@@ -2,6 +2,13 @@ import cv2
 import time
 
 cap = cv2.VideoCapture(0)
+
+# Tracker
+tracker = cv2.legacy.TrackerMOSSE_create()
+success, img = cap.read()
+bound_box = cv2.selectROI('webcam', img, False)
+tracker.init(img, bound_box)
+
 p_time = 0
 while True:
     success, img = cap.read()
