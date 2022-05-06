@@ -18,8 +18,13 @@ def drawBox(image, box):
         (0, 255, 0), 2
     )
     cv2.putText(
-        img, "Tracking", (10, 90),
-        cv2.FONT_HERSHEY_PLAIN, 2,
+        img, "Status", (10, 110),
+        cv2.FONT_HERSHEY_PLAIN, 1.5,
+        (255, 255, 0), 2
+    )
+    cv2.putText(
+        img, "Tracking", (10, 140),
+        cv2.FONT_HERSHEY_PLAIN, 1.5,
         (0, 255, 0), 2
     )
 
@@ -34,8 +39,13 @@ while True:
         drawBox(img, bound_box)
     else:
         cv2.putText(
-            img, "Lost", (10, 90),
-            cv2.FONT_HERSHEY_PLAIN, 2,
+            img, "Status", (10, 110),
+            cv2.FONT_HERSHEY_PLAIN, 1.5,
+            (255, 255, 0), 2
+        )
+        cv2.putText(
+            img, "Lost", (10, 140),
+            cv2.FONT_HERSHEY_PLAIN, 1.5,
             (0, 0, 255), 2
         )
 
@@ -45,7 +55,7 @@ while True:
     p_time = c_time
     cv2.putText(
         img, f'FPS: {int(fps)}', (10, 70),
-        cv2.FONT_HERSHEY_PLAIN, 2,
+        cv2.FONT_HERSHEY_PLAIN, 1.5,
         (255, 0, 255), 2
     )
     cv2.imshow('Webcam', img)
