@@ -3,8 +3,19 @@ import time
 
 cap = cv2.VideoCapture(0)
 
+#######################
 # Tracker
-tracker = cv2.legacy.TrackerMOSSE_create()
+MOSSE = False
+CSRT = True
+#######################
+
+# MOSSE Tracker
+if MOSSE:
+    tracker = cv2.legacy.TrackerMOSSE_create()
+# CSRT Tracker
+if CSRT:
+    tracker = cv2.legacy.TrackerCSRT_create()
+
 success, img = cap.read()
 bound_box = cv2.selectROI('Selection', img, False)
 tracker.init(img, bound_box)
